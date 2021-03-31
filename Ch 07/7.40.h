@@ -1,6 +1,8 @@
+#include <string>
+
 class Employee
 {
-	friend::std::istream &read(std::istream &is, Employee person);
+	friend::std::istream &read(std::istream &is, Employee& person);
 public:
 	Employee(std::string s=" ",int i=0):
 		name(s),num(s),gender(s),team(s),age(i){}
@@ -13,7 +15,7 @@ private:
 	int age;
 	
 };
-std::istream &read(std::istream &is, Employee person)
+std::istream &read(std::istream &is, Employee& person)
 {
 	is >> person.name >> person.num >> person.gender >> person.team >> person.age;
 	return is;
